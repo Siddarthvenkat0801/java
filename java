@@ -1,12 +1,4 @@
 
-moment maker
-photograpger
-customer
-mawa time ayipothundhi
-
-package progusingjava;
-
-//DO NOT MODIFY THE CODE PROVIDED TO YOU
 
 public class MomentMaker {
 	private static int counter = 1000;
