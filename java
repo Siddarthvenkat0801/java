@@ -114,3 +114,79 @@ public class MomentMaker {
 		return "MomentMaker (customer =" +this.customer + ", earlyBirdBooking=" + this.earlyBirdBooking +")";
 	}
 }
+
+
+
+package progusingjava;
+
+//DO NOT MODIFY THE CODE PROVIDED TO YOU
+
+public class Photographer {
+	private String photographerName;
+	private int noOfDays;
+	private double photographerFee;
+	private static double[] photographersFeesPerDayArr = { 5000.0, 7000.0, 8000.0 };
+	private static String[] photographersAvailableArr = { "Jack", "Emily", "Joe" };
+
+	public Photographer(String photographerName, int noOfDays) {
+		this.photographerName = photographerName;
+		this.noOfDays = noOfDays;
+	}
+
+	public String getPhotographerName() {
+		return this.photographerName;
+	}
+
+	public static String[] getPhotographersAvailableArr() {
+		return Photographer.photographersAvailableArr;
+	}
+
+	public int getNoOfDays() {
+		return this.noOfDays;
+	}
+
+	public static double[] getPhotographersFeesPerDayArr() {
+		return Photographer.photographersFeesPerDayArr;
+	}
+
+	public double getPhotographerFee() {
+		return this.photographerFee;
+	}
+
+	//To Trainees
+	public void calculatePhotographerBill() {
+        double basicFare = 0.0;
+        for(int i=0;i<Photographer.photographersAvailableArr.length;i++)
+        {
+            if(this.getPhotographerName().equals(Photographer.photographersAvailableArr[i]))
+            {
+                basicFare=Photographer.photographersFeesPerDayArr[i];
+                break;
+            }
+            else
+            {
+                basicFare=-1.0;
+            }
+        }
+        if(basicFare!=-1.0)
+        {
+            basicFare=basicFare*this.getNoOfDays();
+            
+            this.photographerFee=basicFare;
+            
+        }
+        else{
+            this.photographerFee=basicFare;
+        }
+    
+		
+		// Implement your logic here
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Photographer (photographerName=" + this.photographerName + ", noOfDays=" + this.noOfDays
+				+ ")";
+	}
+}
