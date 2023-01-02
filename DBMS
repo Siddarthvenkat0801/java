@@ -1,3 +1,20 @@
 
 anna bega pettu
 rai work avatlea agu
+
+
+select concat(customerid,concat('-', customername))
+    as "REGULAR_CUSTOMER", city from CUSTOMER 
+    where length(customername)>=5 and customertype="Regular"
+
+select cakeid, cakename, cost from CAKE 
+    where substr(cakeid,5,1)>2 and 
+    cost>(select avg(cost) from CAKE)
+
+select distinct a.cakename, a.caketype 
+    from CAKE a inner join 
+    cake b on a.caketype=b.caketype and a.cakeid<>b.cakeid
+
+select customerid, count(orderid) as "CAKES" from 
+    ORDERS where quantityordered>=2 
+    group by customerid having count(orderid)>1
